@@ -11,14 +11,28 @@ public class Main {
         if (Files.isDirectory(dir)) {
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir);) {
                 for (Path fichero : stream) {
-                    System.out.println(fichero.getFileName());
+                    permisos.append(Files.isDirectory(fichero) ? "d" : "-");
+                    permisos.append(Files.isReadable(fichero) ? "r" : "-");
+                    permisos.append(Files.isWritable(fichero) ? "w" : "-");
+                    permisos.append(Files.isExecutable(fichero) ? "x" : "-");
+                    permisos.append("  ");
+                    permisos.append(fichero.getFileName());
+                    permisos.append("\n");
+
                 }
+                System.out.println(permisos);
+
             } catch (IOException | DirectoryIteratorException ex) {
                 System.err.println(ex);
             }
+
+
+
         } else {
             System.err.println(dir.toString()+" no es un directorio");
         }
+
     }
+
     }
 
