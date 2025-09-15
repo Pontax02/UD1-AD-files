@@ -5,7 +5,7 @@ import java.nio.file.*;
 public class Main {
     public static void main(String[] args) {
 
-        Path dir = Path.of("directorio");
+        Path dir = Path.of("C:/");
         // Usar StringBuilder 100%
         StringBuilder permisos = new StringBuilder();
         if (Files.isDirectory(dir)) {
