@@ -14,13 +14,13 @@ public class Char {
         Long counter = 0L;
         while (sc.hasNext()){
 
-            for( Path character : path ){
+
                 String palabra = sc.nextLine();
                 counter += palabra.chars().
                         filter(ch -> ch == entrada)
                         .count();
 
-            }
+
         }
         System.out.println("El texto contiene " + counter +" caracteres " + entrada);
     }
