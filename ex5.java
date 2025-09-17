@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class ex5 {
     public static void main(String[] args) throws IOException {
 
-        ex5("/media/TEIS/a22ricardoadc/Persoal a22ricardoadc/ACCESO A DATOS/no se q hay q hacer/untitled/src/coches");;
+        ex5("res/coches.txt");;
 
 
     }
@@ -30,7 +30,7 @@ public class ex5 {
 
         // recorremos la lista
         for (String line : lines) {
-            // hacemos esto pa q no haya espacios en blanco
+            // hacemos esto para que no haya espacios en blanco
             if (!line.isEmpty()) {
 
                 String marca = line.split(" ")[0];
@@ -38,12 +38,13 @@ public class ex5 {
                 // System.out.println(modelo);
 
                 // si la marca NO esta registrada en el mapa de coches, la registramos con su modelo
-                if (!coches.containsKey(modelo)) {
-                    coches.put(modelo,marca);
+                if (!coches.containsKey(marca)) {
+                    coches.put(marca,modelo);
                 } else {
-                    // si esta registrada, añadimos el modelo a la lista q es un string
-                    // ESTO NO VA HAY Q ARREGLARLO UN CHIN
-                    coches.put(modelo,coches.get(modelo) + " " +marca);
+                    // si está registrada, añadimos el modelo a la lista que es un string
+                    // ESTO NO VA HAY Q ARREGLARLO UN CHIN (solucionado, falta formatear la salida)
+                    coches.put(marca,coches.get(marca) + " " + modelo);
+
                 }
 
 
