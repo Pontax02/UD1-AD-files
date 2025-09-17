@@ -1,11 +1,8 @@
-package ch;
-
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.Scanner;
 
-public class Char {
+public class ex2pablo {
 
 
     static void countChar(char entrada) throws IOException {

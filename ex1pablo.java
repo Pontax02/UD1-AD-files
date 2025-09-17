@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.nio.file.*;
 
 
-public class ex1e2pablo {
+public class ex1pablo {
     public static void main(String[] args) {
 
         Path dir = Path.of("C:/");
