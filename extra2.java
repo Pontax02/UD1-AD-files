@@ -9,7 +9,7 @@ public class extra2 {
 
     static String directorioTrabajo = System.getProperty("user.dir");
 
-    static void main() {
+    static void main() throws IOException {
         while (true) {
             motor(prompt());
         }
@@ -25,7 +25,7 @@ public class extra2 {
         return sc.nextLine();
     }
 
-    public static void motor(String comando) {
+    public static void motor(String comando) throws IOException {
         String[] comandoSeparado = comando.split(" ", 2);
         String orden = comandoSeparado[0];
         String argumentos = (comandoSeparado.length > 1) ? comandoSeparado[1] : "";
@@ -63,11 +63,15 @@ public class extra2 {
         }
     }
 
-    private static void cat(String ficheiro) {
+    private static void cat(String ficheiro) throws IOException {
         Path f = Paths.get(ficheiro);
         if (!Files.isReadable(f)) {
             System.err.println("Arquivo non lexibel");
         } else {
+            System.out.println("[+] Imprimindo " + ficheiro + "...");
+            for (String linha : Files.readAllLines(f)) {
+                System.out.println(linha);
+            }
 
         }
     }
