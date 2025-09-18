@@ -5,7 +5,7 @@ import java.nio.file.Path;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class lsr {
+public class extra1 {
 
     static Deque<Path> stack = new ArrayDeque<>();
 
