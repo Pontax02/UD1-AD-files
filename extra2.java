@@ -8,7 +8,10 @@ public class extra2 {
     static String directorioTrabajo = System.getProperty("user.dir");
 
     static void main() {
-        System.out.println(prompt());
+        while (true) {
+            motor(prompt());
+        }
+        // System.out.println(prompt());
     }
 
     public static String prompt() {
@@ -17,17 +20,19 @@ public class extra2 {
 
         System.out.print("\n" + directorioTrabajo + " > ");
 
-        return sc.next();
+        return sc.nextLine();
     }
 
     public static void motor(String comando) {
         String[] comandoSeparado = comando.split(" ");
 
-        switch (comando.split(" ")[0]) {
+        switch (comandoSeparado[0]) {
+            case "ls" -> {
 
+            }
             case "cd" -> {
                 if (comandoSeparado.length == 2) {
-
+                    cd(comandoSeparado[1]);
                 } else {
                     System.err.println("Argumentos invalido");
                 }
@@ -42,13 +47,13 @@ public class extra2 {
 
     public static void cd(String directorio) {
         Path dir = Paths.get(directorio);
+        // comprobamos primero q es un directorio
         if (Files.isDirectory(dir)) {
             if (dir.isAbsolute()) {
                 directorioTrabajo = directorio;
             } else {
                 directorioTrabajo = directorioTrabajo + "/" +  directorio;
             }
-
         } else {
             System.err.println("No es un directorio");
         }
