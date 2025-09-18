@@ -39,17 +39,31 @@ public class ex5 {
 
                 // si la marca NO esta registrada en el mapa de coches, la registramos con su modelo
                 if (!coches.containsKey(marca)) {
-                    coches.put(marca,modelo);
+                    coches.put(marca, modelo);
                 } else {
                     // si está registrada, añadimos el modelo a la lista que es un string
-                    // ESTO NO VA HAY Q ARREGLARLO UN CHIN (solucionado, falta formatear la salida)
-                    coches.put(marca,coches.get(marca) + " " + modelo);
 
+                    coches.put(marca,coches.get(marca) + ", " + modelo);
                 }
-
-
             }
         }
-        System.out.println("Coches: " + coches);
+
+        // logica para escribir el fichero
+
+        //inizializar string donde se recogen los datos del mapa
+        String datosFinal = "";
+
+        // recorremos el mapa añadiendo los datos al string
+        for (Map.Entry<String, String> entry : coches.entrySet()) {
+            String marca = entry.getKey();
+            String modelos = entry.getValue();
+
+            // x cada entrada del mapa escribimos los valores en datosFinal con saltos de linea
+            datosFinal = datosFinal.concat(marca + ": " + modelos +"\n");
+        }
+        // finalmente escribimos el string a marcas.txt
+        Files.writeString(Paths.get("res/marcas.txt"), datosFinal);
+
+        // System.out.println(datosFinal);
     }
 }
