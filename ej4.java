@@ -47,7 +47,7 @@ public class ej4 {
 
             double nota = corregir(solucion, valor);
 
-            System.out.println(clave + "\t" + valor + "\t" + nota);
+            System.out.println(clave + "\t" + valor + "\t" + nota + "\t" +aCalificacion(nota));
         }
 
     }
@@ -67,6 +67,26 @@ public class ej4 {
             }
         }
 
+        if (resultado < 0) {
+            resultado = 0;
+        }
         return resultado;
+    }
+
+    public static String aCalificacion(double nota) {
+        if (nota >= 0 && nota <= 4.99) {
+            return "Suspenso";
+        } else if (nota >= 5 && nota <= 5.99) {
+            return "Aprobado";
+        } else if (nota >= 6 && nota <= 6.99) {
+            return "Bien";
+        } else if (nota >= 7 && nota <= 8.49) {
+            return "Notable";
+        } else if (nota >= 8.5 && nota <= 10) {
+            return "Sobresaliente";
+        } else{
+            System.err.println("La nota " + nota + " no esta dentro del rango de clasificacion");
+        }
+        return "";
     }
 }
